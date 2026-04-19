@@ -41,17 +41,19 @@ Classify the user's task by intent (output format, keywords), then load only the
 
 | Task type | Load reference | Copy template | Verify focus |
 |-----------|---------------|---------------|-------------|
+| **ANY design task** | `references/design-excellence.md` | — | Design quality check |
+| High-quality output needed | `references/design-patterns.md` + `case-studies/README.md` | — | Pattern application |
 | Brand style clone | `references/getdesign-loader.md` + `react-babel-setup.md` | Choose template as needed | Brand aesthetic match |
 | React prototype | `references/react-babel-setup.md` | Needed frame from `templates/` | No console errors |
 | Slide deck | `references/starter-components.md` | `templates/deck_stage.js` | Fixed canvas + scaling |
 | Variant exploration | `references/tweaks-system.md` | `templates/design_canvas.jsx` | Tweaks panel visible |
-| Landing page | `references/starter-components.md` | `templates/browser_window.jsx` (optional) | Responsive layout + no console errors |
+| Landing page | `references/starter-components.md` + `references/design-patterns.md` | `templates/browser_window.jsx` (optional) | Responsive layout + no console errors |
 | Animation / motion | `references/starter-components.md` + `react-babel-setup.md` | `templates/animations.jsx` | Timeline playback |
-| Mobile mockup | `references/starter-components.md` + `react-babel-setup.md` | `templates/ios_frame.jsx` or `android_frame.jsx` | Bezel rendering |
+| Mobile mockup | `references/starter-components.md` + `react-babel-setup.md` + `case-studies/mobile-apps/ios-onboarding.md` | `templates/ios_frame.jsx` or `android_frame.jsx` | Bezel rendering |
 | Interactive prototype | `references/interactive-prototype.md` + `react-babel-setup.md` | Choose frame template as needed | Navigation works + no errors |
 | Wireframe / low-fi | `references/frontend-design.md` | `templates/design_canvas.jsx` | Layout structure visible |
 | Design system creation | `references/design-system-creation.md` | — | Tokens apply + visual coherence |
-| No design system provided | `references/frontend-design.md` | Choose template as needed | Aesthetic coherence |
+| No design system provided | `references/frontend-design.md` + `references/design-excellence.md` | Choose template as needed | Aesthetic coherence |
 | Export (PPTX/PDF/inline) | `references/platform-tools.md` | — | File generated |
 
 ## Workflow
@@ -65,11 +67,17 @@ cp <skill-dir>/templates/<component>.<ext> ./<component>.<ext>
 
 **3. Acquire Context** — Search the workspace for design system files (DESIGN.md, token files, existing HTML/CSS). If the project has a design system, read and reuse its visual vocabulary. If none exists, ask the user for a starting point.
 
-**4. Build** — Write the HTML file. Embed React components if needed (see `references/react-babel-setup.md` for pinned versions and scope rules). Show early and iterate. Use tweaks for multiple variants rather than separate files.
+**4. Design Intent** — Before writing any code, answer the 6-question checklist from `references/design-excellence.md` (section: "Before You Build"). Determine: focal point, emotional tone (Trust/Excitement/Professional/Creative), visual flow, spacing strategy, color strategy, and typography hierarchy. This step takes 30 seconds and prevents hours of iteration.
 
-**5. Verify** — Load `references/verification-protocol.md`. Run two-phase verification: structural (console errors, layout) then visual (screenshot review). Fix and re-verify until both phases pass. See `references/platform-tools.md` for the full tool reference.
+**5. Build** — Write the HTML file. Apply design patterns from `references/design-patterns.md` for proven layouts. Embed React components if needed (see `references/react-babel-setup.md` for pinned versions and scope rules). Show early and iterate. Use tweaks for multiple variants rather than separate files.
 
-**6. Deliver** — Hand off the file. Summarize caveats and next steps in one brief paragraph.
+**6. Verify** — Load `references/verification-protocol.md`. Run three-phase verification:
+  - **Structural:** console errors, layout, responsiveness
+  - **Visual:** screenshot review, design quality check
+  - **Design excellence:** hierarchy clarity, spacing consistency, color harmony, emotional fit
+  Fix and re-verify until all phases pass. See `references/platform-tools.md` for the full tool reference.
+
+**7. Deliver** — Hand off the file. Summarize caveats and next steps in one brief paragraph.
 
 ## Output Contracts
 
@@ -79,6 +87,7 @@ Every delivered artifact must satisfy:
 - **Descriptive filename** — e.g., `Landing Page.html`, not `untitled.html`
 - **Fixed-size content scales** — slide decks and presentations use the deck_stage template for proper letterboxing
 - **Tweaks panel present** — if multiple variants exist, they are exposed as tweaks, not separate files
+- **Design quality** — clear visual hierarchy, intentional spacing, harmonious colors, appropriate emotional tone
 
 Output contracts are evaluated during the Verify step. If any contract fails, revisit the Build step.
 

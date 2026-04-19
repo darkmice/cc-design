@@ -5,11 +5,90 @@
 > **Why it matters:** Without a design system, AI defaults to generic web tropes (Inter, blue gradients, rounded containers). This reference gives concrete aesthetic starting points.
 > **Typical failure it prevents:** Generic-looking output that violates the "avoid AI slop" guideline; fonts and colors that clash instead of harmonize
 
+## Visual Taste Principles
+
+### Principle 1: Distinctive Typography Creates Identity
+
+**Why it works:** Typography is the fastest way to establish visual identity. Generic system fonts (Inter, Roboto, Arial) are invisible because they're everywhere. Distinctive fonts create recognition and personality.
+
+**How to apply:** Choose fonts that match the project's emotional tone. Pair a distinctive primary font with a complementary secondary font for hierarchy. Use weight variation (400/500/700) within the same family before switching fonts.
+
+**Positive examples:**
+- Startup/SaaS: DM Sans (clean geometric) + Source Serif 4 (professional serif)
+- Creative portfolio: Space Grotesk (distinctive sans) + Playfair Display (classic serif)
+- Dev tools: JetBrains Mono (monospace identity) + Outfit (modern sans)
+
+**Negative examples:**
+- Inter everywhere (no identity, looks like every other SaaS)
+- Mixing 3+ font families (visual chaos)
+- Using decorative fonts for body text (readability suffers)
+
+### Principle 2: Perceptual Color Harmony Over RGB
+
+**Why it works:** oklch color space ensures colors feel equally bright and saturated to human eyes. RGB/hex colors can look muddy or clash even when mathematically "correct" because they don't match human perception.
+
+**How to apply:** Pick one identity color, then generate harmonious variants by rotating hue (±30° for analogous, 180° for complement). Keep lightness and chroma consistent across the palette for visual coherence.
+
+**Positive examples:**
+- `oklch(0.55 0.18 240)` for primary, `oklch(0.55 0.18 270)` for accent (30° rotation, same L/C)
+- Surface at L=0.95, text at L=0.15, accent at L=0.55 (clear contrast hierarchy)
+
+**Negative examples:**
+- Random hex colors picked from a gradient generator (no perceptual consistency)
+- Using pure black (#000) and pure white (#fff) (harsh, no warmth)
+- Accent colors with wildly different chroma values (some pop, some fade)
+
+### Principle 3: Intentional Whitespace Creates Hierarchy
+
+**Why it works:** Whitespace isn't empty space, it's active design. More space around an element = more importance. Consistent spacing creates rhythm and makes content scannable.
+
+**How to apply:** Use an 8px base grid. Scale by multiples (4px, 8px, 16px, 24px, 32px, 48px, 64px). Give hero sections 60% whitespace, data-dense sections 40% whitespace. One dominant element per section gets the most breathing room.
+
+**Positive examples:**
+- Hero with 64px top/bottom padding, 32px between headline and subhead
+- Card grid with 24px gap, 16px internal padding
+- Section breaks using 48-64px vertical spacing
+
+**Negative examples:**
+- Equal spacing everywhere (no hierarchy, everything feels the same)
+- Cramped layouts with 4-8px everywhere (claustrophobic, hard to scan)
+- Random spacing values (13px, 19px, 27px) that break the grid
+
+### Principle 4: One Visual Weight Per Section
+
+**Why it works:** Human attention is limited. When everything screams for attention (bold text, bright colors, large size), nothing stands out. One dominant element per section creates clear focal points.
+
+**How to apply:** Pick the most important element in each section. Make it 2-3x larger, bolder, or brighter than everything else. Everything else supports it with smaller size, lighter weight, or muted color.
+
+**Positive examples:**
+- Hero: 72px headline, 18px body text (4x size difference)
+- Feature card: Bold 24px title, regular 16px description
+- Stats section: 80px number, 18px label
+
+**Negative examples:**
+- Everything bold (no hierarchy, visual noise)
+- Headline and body text the same size (no entry point)
+- Multiple competing focal points (split attention, confusion)
+
+### Principle 5: Consistent Depth Language
+
+**Why it works:** Shadows and borders create depth. Mixing shadow styles creates visual inconsistency. Pick one depth language and use it everywhere.
+
+**How to apply:** Choose either subtle shadows (`0 1px 3px rgba(0,0,0,0.1)`) for modern/flat or dramatic shadows (`0 8px 30px rgba(0,0,0,0.12)`) for depth. Use borders (`1px solid var(--border)`) for dense layouts where shadows would clutter. Never mix shadow styles on the same page.
+
+**Positive examples:**
+- All cards use `0 1px 3px rgba(0,0,0,0.1)` (consistent subtle depth)
+- All separators use `1px solid oklch(0.80 0.02 0)` (consistent borders)
+- Modals use `0 8px 30px rgba(0,0,0,0.12)`, nothing else does (clear hierarchy)
+
+**Negative examples:**
+- Some cards with subtle shadows, others with dramatic shadows (inconsistent)
+- Mixing borders and shadows on similar elements (visual confusion)
+- Heavy shadows on every element (muddy, claustrophobic)
+
 ## Font Selection
 
-Avoid: Inter, Roboto, Arial, Fraunces, system-ui (as primary identity font).
-
-### By project type
+**Recommended fonts by project type:**
 
 | Type | Primary | Secondary | Rationale |
 |------|---------|-----------|-----------|
