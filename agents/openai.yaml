@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claritas Design"
+  short_description: "High-fidelity HTML design and prototype guidance"
+  default_prompt: "Use $claritas-design to explore three strong HTML-based design directions for this feature, grounded in the existing product style."
