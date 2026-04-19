@@ -24,7 +24,7 @@ Or use `Read` to read the template, then `Write` to create a customized version 
 |---|---|---|---|
 | `deck_stage` | `templates/deck_stage.js` | Plain JS | ANY slide presentation — handles scaling, keyboard nav, slide-count overlay, speaker-notes postMessage, localStorage persistence, print-to-PDF |
 | `design_canvas` | `templates/design_canvas.jsx` | JSX (React) | Presenting 2+ static options side-by-side — a grid layout with labeled cells for variations |
-| `ios_frame` | `templates/ios_frame.jsx` | JSX (React) | Design needs to look like a real iPhone screen — includes device bezel with status bar and keyboard |
+| `ios_frame` | `templates/ios_frame.jsx` | JSX (React) | Design needs to look like a real iPhone screen — includes device bezel with status bar |
 | `android_frame` | `templates/android_frame.jsx` | JSX (React) | Design needs to look like a real Android phone screen — includes device bezel with status bar and keyboard |
 | `macos_window` | `templates/macos_window.jsx` | JSX (React) | Desktop window chrome with traffic lights |
 | `browser_window` | `templates/browser_window.jsx` | JSX (React) | Desktop window chrome with tab bar |

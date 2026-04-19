@@ -44,14 +44,18 @@ Classify the user's task by intent (output format, keywords), then load only the
 | React prototype | `references/react-babel-setup.md` | Needed frame from `templates/` | No console errors |
 | Slide deck | `references/starter-components.md` | `templates/deck_stage.js` | Fixed canvas + scaling |
 | Variant exploration | `references/tweaks-system.md` | `templates/design_canvas.jsx` | Tweaks panel visible |
-| Landing page | `references/platform-tools.md` | `templates/browser_window.jsx` (optional) | Responsive layout |
+| Landing page | `references/starter-components.md` | `templates/browser_window.jsx` (optional) | Responsive layout + no console errors |
 | Animation / motion | `references/starter-components.md` + `react-babel-setup.md` | `templates/animations.jsx` | Timeline playback |
 | Mobile mockup | `references/starter-components.md` + `react-babel-setup.md` | `templates/ios_frame.jsx` or `android_frame.jsx` | Bezel rendering |
+| Interactive prototype | `references/interactive-prototype.md` + `react-babel-setup.md` | Choose frame template as needed | Navigation works + no errors |
+| Wireframe / low-fi | `references/frontend-design.md` | `templates/design_canvas.jsx` | Layout structure visible |
+| Design system creation | `references/design-system-creation.md` | — | Tokens apply + visual coherence |
+| No design system provided | `references/frontend-design.md` | Choose template as needed | Aesthetic coherence |
 | Export (PPTX/PDF/inline) | `references/platform-tools.md` | — | File generated |
 
 ## Workflow
 
-**1. Understand** — Ask clarifying questions via `AskUserQuestion`: output format, fidelity level, number of variations, constraints, and existing design systems. Continue until scope is clear.
+**1. Understand** — Ask clarifying questions via `AskUserQuestion`: output format, fidelity level, number of variations, constraints, and existing design systems. If scope is unclear, load `references/question-protocol.md` for structured question templates. Continue until scope is clear.
 
 **2. Route** — Read the routing table above. Identify the task type. Load the specified reference(s). Copy the specified template(s) from `templates/` to the project directory:
 ```bash
@@ -62,7 +66,7 @@ cp <skill-dir>/templates/<component>.<ext> ./<component>.<ext>
 
 **4. Build** — Write the HTML file. Embed React components if needed (see `references/react-babel-setup.md` for pinned versions and scope rules). Show early and iterate. Use tweaks for multiple variants rather than separate files.
 
-**5. Verify** — Open in Playwright. Check console errors. Take a screenshot. Fix and re-verify. See `references/platform-tools.md` for the full tool reference.
+**5. Verify** — Load `references/verification-protocol.md`. Run two-phase verification: structural (console errors, layout) then visual (screenshot review). Fix and re-verify until both phases pass. See `references/platform-tools.md` for the full tool reference.
 
 **6. Deliver** — Hand off the file. Summarize caveats and next steps in one brief paragraph.
 

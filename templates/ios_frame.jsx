@@ -9,6 +9,12 @@
  */
 
 function IOSFrame({ children, color = '#000', showNotch = true }) {
+  // Auto-compute text contrast
+  const isLight = color.match(/^#[0-9a-f]{6}$/i)
+    ? (() => { const r = parseInt(color.slice(1,3),16), g = parseInt(color.slice(3,5),16), b = parseInt(color.slice(5,7),16); return (r*299+g*587+b*114)/1000 > 128; })()
+    : false;
+  const textColor = isLight ? '#000' : '#fff';
+
   const frameStyles = {
     width: '393px',
     height: '852px',
@@ -29,7 +35,7 @@ function IOSFrame({ children, color = '#000', showNotch = true }) {
     fontFamily: 'system-ui, -apple-system, sans-serif',
     fontSize: '15px',
     fontWeight: 600,
-    color: '#fff',
+    color: textColor,
   };
 
   const contentStyles = {
@@ -57,7 +63,7 @@ function IOSFrame({ children, color = '#000', showNotch = true }) {
     transform: 'translateX(-50%)',
     width: '134px',
     height: '5px',
-    background: 'rgba(255,255,255,0.3)',
+    background: isLight ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)',
     borderRadius: '3px',
   };
 
@@ -69,7 +75,7 @@ function IOSFrame({ children, color = '#000', showNotch = true }) {
       React.createElement('span', null, time),
       React.createElement('div', { style: { display: 'flex', gap: '4px', alignItems: 'center' } },
         React.createElement('span', { style: { fontSize: '13px' } }, '5G'),
-        React.createElement('span', null, '🔋')
+        React.createElement('span', null, '87%')
       )
     ),
     React.createElement('div', { style: contentStyles }, children),
