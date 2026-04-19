@@ -2,7 +2,7 @@
 
 A Claude Code skill that provides high-fidelity HTML design and prototype creation capabilities — covering slide decks, interactive prototypes, landing pages, UI mockups, animations, and visual design explorations.
 
-Adapted from the Claude Artifacts design environment to work natively with Claude Code, using Playwright MCP for preview and verification, and local template files for starter components.
+Adapted from the Claude Artifacts design environment to work in Claude Code and Codex-style coding agents, using Playwright MCP where available and local scripts for export fallback paths.
 
 ## Overview
 
@@ -22,8 +22,8 @@ The skill is designed around two core principles:
 | **Variations** | Generates 3+ design directions across layout, interaction, visual intensity, and motion axes |
 | **Prototyping** | React + Babel inline JSX with pinned versions, component scope management, starter scaffolds |
 | **Tweaks system** | Self-contained in-page design controls with real-time preview and localStorage persistence |
-| **Verification** | Playwright-based console error checks, visual screenshot verification |
-| **Export** | PPTX (editable or screenshot mode), PDF, standalone self-contained HTML |
+| **Verification** | Playwright-based verification in Claude Code; equivalent preview/screenshot flows in Codex-style hosts |
+| **Export** | Local PPTX/PDF/inline export scripts, or equivalent host-provided export tools |
 
 ## Installation
 
@@ -45,6 +45,12 @@ For PPTX, PDF, and inline HTML export features:
 
 ```bash
 cd ~/.claude/skills/cc-design/scripts && npm install && cd -
+```
+
+This installs both `pptxgenjs` and `playwright`. Playwright-backed export paths may also require:
+
+```bash
+npx playwright install chromium
 ```
 
 ## Project Structure
@@ -128,9 +134,8 @@ Understand → Explore → Plan → Build → Verify → Deliver
 
 | Platform | Status | Notes |
 |---|---|---|
-| Claude Code (CLI) | **Primary target** | Playwright MCP for preview |
-| Claude.ai (Web) | Partial | No Playwright; use `open` command |
-| Codex / OpenAI-compatible | Supported | Via `agents/openai.yaml` |
+| Claude Code (CLI) | **Primary target** | Playwright MCP plus local scripts |
+| Codex / OpenAI-compatible | Supported | Prompt metadata is included; exact tool mapping depends on the host |
 
 ## Contributing
 

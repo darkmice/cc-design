@@ -1,10 +1,17 @@
 # Starter Components
 
+> **Load when:** Needing device frames, slide deck shells, presentation grids, or animation scaffolds
+> **Skip when:** Designing from scratch with existing components, or building something none of the templates cover
+> **Why it matters:** Avoids hand-rolling scaling logic, device bezels, and animation engines — these are tricky to get right
+> **Typical failure it prevents:** Hand-written scale transforms that break on resize, slide decks without proper letterboxing, animation timing drift
+
 Starter components are ready-made scaffolds in the `templates/` directory. Copy them to your project instead of hand-drawing device bezels, deck shells, or presentation grids.
 
 Kinds include the file extension — some are plain JS (load with `<script src>`), some are JSX (load with `<script type="text/babel" src>`).
 
 ## How to use
+
+If your Codex host exposes a built-in starter-component tool, you can use that. Otherwise use the same file-copy flow described for Claude Code.
 
 ```bash
 # Copy a template to your project
